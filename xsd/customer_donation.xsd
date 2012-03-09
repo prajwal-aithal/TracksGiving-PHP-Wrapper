@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0">
+	<xsd:element name="customer_donation_request" type="customer_donation_requestType"/>
+	<xsd:complexType name="customer_donation_requestType">
+		<xsd:sequence>
+			<xsd:element name="order" type="orderType" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="donor" type="donorType" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="donation" type="donationType" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="string_min2_max255">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="2"/>
+			<xsd:maxLength value="255"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="donationType">
+		<xsd:sequence>
+			<xsd:element name="campaign_key" type="string_min2_max255" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="amount" type="xsd:decimal" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="project_id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="donorType">
+		<xsd:sequence>
+			<xsd:element name="name" type="string_min2_max255" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="customer_email" type="string_min2_max255" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="genre" type="string_min2_max255" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="pan_number" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="tax_payer" type="string_min2_max255" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="addressline" type="string_min2_max255" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="country_iso2" type="string_min2_max255" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="state_iso2" type="string_min2_max255" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="city" type="string_min2_max255" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="zipcode" type="string_min2_max255" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="orderType">
+		<xsd:sequence>
+			<xsd:element name="id" type="string_min2_max255" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="comment" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="payment_trx_details" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="submission_date" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="due_date" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="ipaddress" type="string_min2_max255" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="channel_code" type="string_min2_max255" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
